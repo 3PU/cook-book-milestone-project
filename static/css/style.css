@@ -1,22 +1,51 @@
-/* HEADER STYLING */
+/* ----------------------------------------- HEADER STYLING */
 
 .navbar,
 .dropdown-item {
     background-color: #ee693f;
 }
 
+.navbar {
+    border-bottom: 1px solid #b5b5b5;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
 .dropdown-menu {
     padding: 0px;
+    border: #b5b5b5;
     box-shadow: 5px 5px 15px #333333;
 }
 
-.navbar a,
-button,
-li {
+.dropdown-menu a {
     color: #fff;
-}    
+}
 
-/* FOOTER STYLING */
+/* ----------------------------------------- BODY STYLING*/
+
+.page-title {
+    padding-top: 75px;
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* ----------------------------------------- FOOTER STYLING */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
 
 footer,
 footer p {
