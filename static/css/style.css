@@ -1,0 +1,25 @@
+/* HEADER STYLING */
+
+.navbar,
+.dropdown-item {
+    background-color: #ee693f;
+}
+
+.dropdown-menu {
+    padding: 0px;
+    box-shadow: 5px 5px 15px #333333;
+}
+
+.navbar a,
+button,
+li {
+    color: #fff;
+}    
+
+/* FOOTER STYLING */
+
+footer,
+footer p {
+    background-color: #ee693f;
+    color: #fff;
+}
