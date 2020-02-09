@@ -18,14 +18,21 @@ mongo = PyMongo(app)
 def home():
     return render_template("index.html")
 
-@app.route("/get_recipes")
-def get_recipes():
-    return render_template("recipes.html", recipes=mongo.db.recipes.find())
+@app.route("/breakfast_recipes")
+def breakfast_recipes():
+    return render_template("breakfast_recipes.html", recipes=mongo.db.recipes.find())
+
+@app.route("/main_recipes")
+def main_recipes():
+    return render_template("main_recipes.html", recipes=mongo.db.recipes.find())
+
+@app.route("/dessert_recipes")
+def dessert_recipes():
+    return render_template("dessert_recipes.html", recipes=mongo.db.recipes.find())
 
 @app.route("/add_recipes")
 def add_recipes():
     return render_template("add_recipes.html", recipes=mongo.db.recipes.find())
-
 
 @app.route("/edit_recipes")
 def edit_recipes():
