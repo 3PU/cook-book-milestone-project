@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="page-title">
+        <h1>Add Recipe</h1>
+        <h4>By using the form below, you can add your own recipes</h4>
+    </div>
+
+<div class="row">
+      <div class="col-lg-8 mb-4">
+        <form action="{{url_for('insert_recipe')}}" method="POST" name="addRecipe" id="addRecipe">
+            <div class="form-group">
+                <label>Select Category</label>
+                    <select class="form-control" id="category_name" name="category_name">
+                        {% for category in categories %}
+                        <option>{{category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            <div class="form-group">
+                <div class="controls">
+                <label>Recipe Name</label>
+                <input class="form-control" id="recipe_name" name="recipe_name" type="text" required data-validation-required-message="Please enter a recipe name." placeholder="e.g. Ceasar Sallad">
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="controls">
+                <label>Recipe Image</label>
+                <input class="form-control" id="image_link" name="image_link" type="url" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." placeholder="Paste link to recipe image here">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="controls">
+                <label>Ingredients</label>
+                <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="5">Enter ingredients here (Separate each ingredient on a new line by hitting the enter key after each ingredient)</textarea>
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="controls">
+                <label>Instructions</label>
+                <textarea type="text" class="form-control" id="instructions" name="instructions" rows="5">Enter instructions here (Separate each instruction on a new line by hitting the enter key after each instruction)</textarea>
+                </div>
+            </div>
+            <div id="success"></div>
+            <!-- For success/fail messages -->
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit Recipe</button>
+        </form>
+      </div>
+
+{% endblock %}
