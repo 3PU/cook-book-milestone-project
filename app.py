@@ -54,6 +54,24 @@ def edit_recipe(recipe_id):
 
     return render_template("edit_recipe.html", recipe=the_recipe, categories=all_categories, ingredients=ingredients_text, instructions=instructions_text)
 
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
+def update_recipe(recipe_id):
+    recipe = mongo.db.recipes
+
+    ingredients_list = request.form.get["ingredients"].split("\n")
+    instructions_list = request.form.get["instructions"].split("\n")
+
+    recipe.update( {"_id": ObjectId(recipe_id)},
+    {
+        "category_name": request.form.get["category_name"],
+        "recipe_name": request.form.get["recipe_name"],
+        "image_link": request.form.get["image_link"],
+        "ingredients": ingredients_list,
+        "instructions": instructions_list
+    })
+    
+    return redirect(url_for("thank_you_edit"))
+
 @app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
@@ -73,7 +91,15 @@ def insert_recipe():
         }
     )
 
-    return redirect(url_for("add_recipes"))
+    return redirect(url_for("thank_you_add"))
+
+@app.route("/thank_you_add")
+def thank_you_add():
+    return render_template("thank_you_add.html")
+
+@app.route("/thank_you_edit")
+def thank_you_edit():
+    return render_template("thank_you_edit.html")
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
