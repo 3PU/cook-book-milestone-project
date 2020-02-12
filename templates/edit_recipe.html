@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="page-title">
+        <h1>Edit Recipe</h1>
+        <h4>You can edit one or multiple values of the chosen recipe below. Make sure to hit the 'Update' button once you're satisfied to save your changes.</h4>
+    </div>
+
+<div class="row">
+      <div class="col-lg-8 mb-4">
+        <form action="#" method="POST" name="updateRecipe" id="updateRecipe">
+            <div class="form-group">
+                <label>Select Category</label>
+                    <select class="form-control" id="category_name" name="category_name">
+                        {% for category in categories %}
+                            {% if category.category_name == recipe.category_name %}
+                            <option value="{{category.category_name}}" selected>{{category.category_name}}</option>
+                            {% else %}
+                            <option value="{{category.category_name}}">{{category.category_name}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+            <div class="form-group">
+                <div class="controls">
+                <label>Recipe Name</label>
+                <input type="text" class="form-control" id="recipe_name" name="recipe_name" required data-validation-required-message="Please enter a recipe name." value="{{recipe.recipe_name}}">
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="controls">
+                <label>Recipe Image</label>
+                <input type="url" class="form-control" id="image_link" name="image_link" pattern="https://.*" required data-validation-required-message="Please enter a valid link to the recipe image." value="{{recipe.image_link}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="controls">
+                <label>Ingredients</label>
+                <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe.">{{ingredients}}</textarea>
+                </div>
+            </div>            
+            <div class="form-group">
+                <div class="controls">
+                <label>Instructions</label>
+                <textarea type="text" class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe.">{{instructions}}</textarea>
+                </div>
+            </div>
+            <div id="success"></div>
+            <!-- For success/fail messages -->
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit Recipe</button>
+        </form>
+      </div>
+
+{% endblock %}

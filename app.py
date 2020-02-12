@@ -20,28 +20,39 @@ def home():
 
 @app.route("/breakfast_recipes")
 def breakfast_recipes():
+    all_recipes = mongo.db.recipes.find()
     return render_template("breakfast_recipes.html",
-    recipes=mongo.db.recipes.find())
+    recipes=all_recipes)
 
 @app.route("/main_recipes")
 def main_recipes():
+    all_recipes = mongo.db.recipes.find()
     return render_template("main_recipes.html",
-    recipes=mongo.db.recipes.find())
+    recipes=all_recipes)
 
 @app.route("/dessert_recipes")
 def dessert_recipes():
+    all_recipes = mongo.db.recipes.find()
     return render_template("dessert_recipes.html",
-    recipes=mongo.db.recipes.find())
+    recipes=all_recipes)
 
 @app.route("/add_recipes")
 def add_recipes():
+    all_categories = mongo.db.categories.find()
     return render_template("add_recipes.html",
-    categories=mongo.db.categories.find())
+    categories=all_categories)
 
-@app.route("/edit_recipes")
-def edit_recipes():
-    return render_template("edit_recipes.html",
-    recipes=mongo.db.recipes.find())
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_categories = mongo.db.categories.find()
+    ingredients_list = [ingredient for ingredient in the_recipe['ingredients']]
+    instructions_list = [instruction for instruction in the_recipe['instructions']]
+
+    ingredients_text = "\n".join(ingredients_list)
+    instructions_text = "\n".join(instructions_list)
+
+    return render_template("edit_recipe.html", recipe=the_recipe, categories=all_categories, ingredients=ingredients_text, instructions=instructions_text)
 
 @app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
