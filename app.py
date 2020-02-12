@@ -36,6 +36,11 @@ def dessert_recipes():
     return render_template("dessert_recipes.html",
     recipes=all_recipes)
 
+@app.route("/view_recipe/<recipe_id>")
+def view_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("view_recipe.html", recipe=the_recipe)
+
 @app.route("/add_recipes")
 def add_recipes():
     all_categories = mongo.db.categories.find()
