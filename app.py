@@ -47,36 +47,6 @@ def add_recipes():
     return render_template("add_recipes.html",
     categories=all_categories)
 
-@app.route("/edit_recipe/<recipe_id>")
-def edit_recipe(recipe_id):
-    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    all_categories = mongo.db.categories.find()
-    ingredients_list = [ingredient for ingredient in the_recipe['ingredients']]
-    instructions_list = [instruction for instruction in the_recipe['instructions']]
-
-    ingredients_text = "\n".join(ingredients_list)
-    instructions_text = "\n".join(instructions_list)
-
-    return render_template("edit_recipe.html", recipe=the_recipe, categories=all_categories, ingredients=ingredients_text, instructions=instructions_text)
-
-@app.route("/update_recipe/<recipe_id>", methods=["POST"])
-def update_recipe(recipe_id):
-    recipe = mongo.db.recipes
-
-    ingredients_list = request.form.get["ingredients"].split("\n")
-    instructions_list = request.form.get["instructions"].split("\n")
-
-    recipe.update( {"_id": ObjectId(recipe_id)},
-    {
-        "category_name": request.form.get["category_name"],
-        "recipe_name": request.form.get["recipe_name"],
-        "image_link": request.form.get["image_link"],
-        "ingredients": ingredients_list,
-        "instructions": instructions_list
-    })
-    
-    return redirect(url_for("thank_you_edit"))
-
 @app.route("/insert_recipe", methods=["POST"])
 def insert_recipe():
     recipes = mongo.db.recipes
@@ -102,9 +72,47 @@ def insert_recipe():
 def thank_you_add():
     return render_template("thank_you_add.html")
 
-@app.route("/thank_you_edit")
-def thank_you_edit():
-    return render_template("thank_you_edit.html")
+@app.route("/edit_recipe/<recipe_id>")
+def edit_recipe(recipe_id):
+    the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    all_categories = mongo.db.categories.find()
+    ingredients_list = [ingredient for ingredient in the_recipe['ingredients']]
+    instructions_list = [instruction for instruction in the_recipe['instructions']]
+
+    ingredients_text = "\n".join(ingredients_list)
+    instructions_text = "\n".join(instructions_list)
+
+    return render_template("edit_recipe.html", recipe=the_recipe, categories=all_categories, ingredients=ingredients_text, instructions=instructions_text)
+
+@app.route("/update_recipe/<recipe_id>", methods=["POST"])
+def update_recipe(recipe_id):
+    recipe = mongo.db.recipes
+
+    form_data = request.form.to_dict()
+
+    ingredients_list = form_data["ingredients"].split("\n")
+    instructions_list = form_data["instructions"].split("\n")
+
+    recipe.update( {"_id": ObjectId(recipe_id)},
+        {
+        "category_name": form_data["category_name"],
+        "recipe_name": form_data["recipe_name"],
+        "image_link": form_data["image_link"],
+        "ingredients": ingredients_list,
+        "instructions": instructions_list
+        }
+    )
+    
+    return redirect(url_for("thank_you_edit"))
+
+@app.route("/thank_you_edit/<category>")
+def thank_you_edit(category):
+    return render_template("thank_you_edit.html", category=category)
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
