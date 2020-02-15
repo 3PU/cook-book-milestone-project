@@ -1,4 +1,35 @@
-/* ----------------------------------------- HEADER STYLING */
+/* ----------------------------------------- FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Sriracha&display=swap');
+
+
+/* ----------------------------------------- BODY */
+
+.page-title {
+    padding-top: 75px;
+}
+
+.navbar-brand {
+    font-family: "Sriracha", sans-serif;
+    font-size: 1.7em;
+}
+
+.nav-item a,
+.footer {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ----------------------------------------- HEADER */
 
 .navbar,
 .dropdown-item {
@@ -6,7 +37,7 @@
 }
 
 .navbar {
-    border-bottom: 1px solid #b5b5b5;
+    border-bottom: 3px solid #fff;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -23,15 +54,12 @@
     color: #fff;
 }
 
-/* ----------------------------------------- BODY STYLING*/
 
-.page-title {
-    padding-top: 75px;
-}
+/* ----------------------------------------- INDEX */
 
 .carousel-item {
-  height: 65vh;
-  min-height: 300px;
+  max-height: 60vh;
+  min-height: 25vh;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -39,12 +67,23 @@
   background-size: cover;
 }
 
-/* ----------------------------------------- FOOTER STYLING */
+.text-container {
+    padding: 2em;
+}
+
+.text-container h3 {
+    padding-bottom: 0.5em;
+}
+
+
+/* ----------------------------------------- FOOTER */
 
 footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
+    border-top: 5px solid #fff;
 }
 
 footer,
