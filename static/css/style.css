@@ -1,12 +1,20 @@
 /* ----------------------------------------- FONTS */
 
-@import url('https://fonts.googleapis.com/css?family=Roboto|Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Sriracha&display=swap');
 
 
 /* ----------------------------------------- BODY */
 
+body {
+    padding-top: 4em;
+    padding-bottom: 5em;
+}
+
 .page-title {
-    padding-top: 75px;
+    font-family: "Roboto", sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 1em 0 0.5em 0;
 }
 
 .navbar-brand {
@@ -20,13 +28,8 @@
     font-size: 1em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Roboto", sans-serif;
+.card-title {
+    font-family: "Sriracha", sans-serif;
 }
 
 /* ----------------------------------------- HEADER */
@@ -58,8 +61,7 @@ h6 {
 /* ----------------------------------------- INDEX */
 
 .carousel-item {
-  max-height: 60vh;
-  min-height: 25vh;
+  max-height: 55vh;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -73,6 +75,17 @@ h6 {
 
 .text-container h3 {
     padding-bottom: 0.5em;
+}
+
+
+/* ----------------------------------------- RECIPES PAGE */
+
+.recipe-description {
+    margin: auto;
+}
+
+.recipe-image img {
+    max-width: 25vh;
 }
 
 
