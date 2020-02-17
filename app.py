@@ -39,12 +39,13 @@ def dessert_recipes():
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     the_recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("view_recipe.html", recipe=the_recipe)
+    return render_template("view_recipe.html",
+    recipe=the_recipe)
 
 @app.route("/add_recipes")
 def add_recipes():
     all_categories = mongo.db.categories.find()
-    return render_template("add_recipes.html",
+    return render_template("add_recipe.html",
     categories=all_categories)
 
 @app.route("/insert_recipe", methods=["POST"])
