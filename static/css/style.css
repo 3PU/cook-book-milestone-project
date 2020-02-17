@@ -10,6 +10,23 @@ body {
     padding-bottom: 5em;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Roboto", sans-serif;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+.btn {
+    font-family: "Roboto", sans-serif;
+}
+
 .page-title {
     font-family: "Roboto", sans-serif;
     font-size: 2em;
@@ -32,6 +49,7 @@ body {
     font-family: "Sriracha", sans-serif;
 }
 
+
 /* ----------------------------------------- HEADER */
 
 .navbar,
@@ -40,7 +58,7 @@ body {
 }
 
 .navbar {
-    border-bottom: 3px solid #fff;
+    border-bottom: 2px solid #fff;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -80,14 +98,78 @@ body {
 
 /* ----------------------------------------- RECIPES PAGE */
 
+.recipe-container {
+    padding-top: 4vh;
+}
+
+.recipe-container img{
+    max-height: 50vh;
+}
+
+.recipe-title {
+    padding: 1vh 0;
+}
+
+.ingredients-heading {
+    padding: 2vh 0;
+}
+
 .recipe-description {
     margin: auto;
 }
 
-.recipe-image img {
-    max-width: 25vh;
+.recipe-description p {
+    padding: 1.5vh 0;
 }
 
+.recipe-buttons {
+    padding: 1.5vh 0;
+}
+
+.form-field-description {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+
+/* ----------------------------------------- FORMS */
+
+i {
+    font-size: 1.3em;
+    padding-right: 1vw;
+}
+
+.form-heading h5{
+    padding: 1vh 0;
+    margin: 0;
+}
+
+.form-group {
+    padding: 1vh 0;
+}
+
+
+/* ----------------------------------------- THANK YOU PAGE*/
+
+.thank-you-container {
+    padding: 4vh 0;
+}
+
+.thank-you-container img {
+    max-height: 60vh;
+    padding: 2vh 0;
+    width: 100%;
+    border-radius: 30%;
+}
+
+.thank-you-text {
+    padding: 2vh 0 3vh 0;
+    color: #28a745;
+}
+
+.thank-you-container i {
+    padding-left: 2vw;
+}
 
 /* ----------------------------------------- FOOTER */
 
