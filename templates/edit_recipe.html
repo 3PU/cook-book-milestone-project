@@ -36,6 +36,12 @@
             </div>
             <div class="form-group">
                 <div class="controls">
+                <i class="fas fa-info"></i><label class="form-field-description">Recipe Description</label>
+                <textarea type="text" class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description.">{{recipe.description}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="controls">
                 <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
                 <textarea type="text" class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe.">{{ingredients}}</textarea>
                 </div>

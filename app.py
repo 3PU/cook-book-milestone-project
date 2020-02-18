@@ -18,23 +18,11 @@ mongo = PyMongo(app)
 def home():
     return render_template("index.html")
 
-@app.route("/breakfast_recipes")
-def breakfast_recipes():
+@app.route("/view_recipe_category/<selected_category>")
+def view_recipe_category(selected_category):
     all_recipes = mongo.db.recipes.find()
-    return render_template("breakfast_recipes.html",
-    recipes=all_recipes)
-
-@app.route("/main_recipes")
-def main_recipes():
-    all_recipes = mongo.db.recipes.find()
-    return render_template("main_recipes.html",
-    recipes=all_recipes)
-
-@app.route("/dessert_recipes")
-def dessert_recipes():
-    all_recipes = mongo.db.recipes.find()
-    return render_template("dessert_recipes.html",
-    recipes=all_recipes)
+    return render_template("view_recipe_category.html",
+    recipes=all_recipes, selected_category=selected_category)
 
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
@@ -57,21 +45,18 @@ def insert_recipe():
     ingredients_list = form_data["ingredients"].split("\n")
     instructions_list = form_data["instructions"].split("\n")
 
-    recipes.insert_one(
+    the_recipe = recipes.insert_one(
         {
         "category_name": form_data["category_name"],
         "recipe_name": form_data["recipe_name"],
         "image_link": form_data["image_link"],
-        "ingredients": ingredients_list,
+        "description": form_data["description"],
+        "ingredients": ingredients_list,git
         "instructions": instructions_list
         }
     )
 
-    return redirect(url_for("thank_you_add"))
-
-@app.route("/thank_you_add")
-def thank_you_add():
-    return render_template("thank_you_add.html")
+    return redirect(url_for("view_recipe", recipe_id=the_recipe.inserted_id))
 
 @app.route("/edit_recipe/<recipe_id>")
 def edit_recipe(recipe_id):
@@ -99,16 +84,13 @@ def update_recipe(recipe_id):
         "category_name": form_data["category_name"],
         "recipe_name": form_data["recipe_name"],
         "image_link": form_data["image_link"],
+        "description": form_data["description"],
         "ingredients": ingredients_list,
         "instructions": instructions_list
         }
     )
     
-    return redirect(url_for("thank_you_edit"))
-
-@app.route("/thank_you_edit/<category>")
-def thank_you_edit(category):
-    return render_template("thank_you_edit.html", category=category)
+    return redirect(url_for("view_recipe", recipe_id=recipe_id))
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
