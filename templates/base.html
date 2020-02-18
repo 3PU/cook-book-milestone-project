@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="https://kit.fontawesome.com/1cbdb627c6.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>VeggiPedia - {{page_title}}</title>
 </head>
 <body>
     <!-- Navigation -->
@@ -28,9 +28,9 @@
                     Browse recipes
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{url_for('breakfast_recipes')}}">Breakfast</a>
-                        <a class="dropdown-item" href="{{url_for('main_recipes')}}">Main</a>
-                        <a class="dropdown-item" href="{{url_for('dessert_recipes')}}">Dessert</a>
+                        <a class="dropdown-item" href="{{url_for('view_recipe_category', selected_category = 'Breakfast')}}">Breakfast</a>
+                        <a class="dropdown-item" href="{{url_for('view_recipe_category', selected_category = 'Main')}}">Main</a>
+                        <a class="dropdown-item" href="{{url_for('view_recipe_category', selected_category = 'Dessert')}}">Dessert</a>
                     </div>
                 </li>
                 <li class="nav-item">
