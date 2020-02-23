@@ -8,7 +8,7 @@
     </div>
 
 <div class="row">
-      <div class="col-md-12 mb-4">
+    <div class="col-md-12 mb-4">
         <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" name="updateRecipe" id="updateRecipe">
             <div class="form-group">
                 <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
@@ -52,8 +52,14 @@
                 <textarea type="text" class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe.">{{instructions}}</textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success" id="sendMessageButton">Update Recipe</button>
+            <button type="submit" class="btn btn-success" onclick="confirmed_edit()" id="sendMessageButton">Update Recipe</button>
         </form>
-      </div>
+    </div>
+</div>
+<script>
+function confirmed_edit(){
+        alert("Thank you! The recipe has been updated successfully.");
+    }
+</script>
 
 {% endblock %}
