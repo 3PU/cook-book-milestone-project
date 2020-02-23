@@ -52,13 +52,17 @@
                 <textarea type="text" class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe.">{{instructions}}</textarea>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success" onclick="confirmed_edit()" id="sendMessageButton">Update Recipe</button>
+            <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update Recipe</button>
+            <a href="{{url_for('view_recipe', recipe_id=recipe._id)}}" onclick="alert_no_edit()" class="btn btn-success">Cancel</a> 
         </form>
     </div>
 </div>
 <script>
-function confirmed_edit(){
+function alert_edit(){
         alert("Thank you! The recipe has been updated successfully.");
+    }
+function alert_no_edit(){
+        alert("The recipe has not been edited.");
     }
 </script>
 

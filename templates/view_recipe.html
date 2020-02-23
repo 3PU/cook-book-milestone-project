@@ -20,6 +20,7 @@
                     <div class="recipe-buttons">
                         <a href="{{url_for('edit_recipe', recipe_id=recipe._id)}}" class="btn btn-success">Edit Recipe</a>
                         <button type="button" class="btn btn-success" onclick="confirm_del()">Delete Recipe</button>
+                        <button type="button" class="btn btn-success" onclick="goBack()">Back To Recipes</button>
                     </div>
                 </div>
             </div>
@@ -37,6 +38,9 @@ function confirm_del(){
             alert("The recipe has not been deleted.");
         }
     }
+function goBack() {
+  window.history.back()
+}
 </script>
 
 {% endblock %}
