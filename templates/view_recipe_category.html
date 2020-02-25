@@ -6,6 +6,7 @@
         <p>Breakfast Recipes</p>
     </div>
     
+    <!-- Creates a recipe card for each recipe in the chosen category by iterating through database collection based on selected category -->
     {% for recipe in recipes %}
         {% if recipe.category_name == selected_category %}
 

@@ -1,9 +1,9 @@
-/* ----------------------------------------- FONTS */
+/* ----------------------------------------- FONT IMPORT */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Sriracha&display=swap');
 
 
-/* ----------------------------------------- BODY */
+/* ----------------------------------------- GENERAL STYLING */
 
 body {
     padding-top: 4em;
@@ -34,23 +34,8 @@ p {
     padding: 1em 0 0.5em 0;
 }
 
-.navbar-brand {
-    font-family: "Sriracha", sans-serif;
-    font-size: 1.7em;
-}
 
-.nav-item a,
-.footer {
-    font-family: "Roboto", sans-serif;
-    font-size: 1em;
-}
-
-.card-title {
-    font-family: "Sriracha", sans-serif;
-}
-
-
-/* ----------------------------------------- HEADER */
+/* ----------------------------------------- NAVBAR STYLING */
 
 .navbar,
 .dropdown-item {
@@ -65,10 +50,20 @@ p {
     color: #fff;
 }
 
+.navbar-brand {
+    font-family: "Sriracha", sans-serif;
+    font-size: 1.7em;
+}
+
+.nav-item a {
+    font-family: "Roboto", sans-serif;
+    font-size: 1em;
+}
+
 .dropdown-menu {
     padding: 0px;
     border: #b5b5b5;
-    box-shadow: 5px 5px 15px #333333;
+    box-shadow: 0.5em 0.5em 1.5em #333333;
 }
 
 .dropdown-menu a {
@@ -76,7 +71,7 @@ p {
 }
 
 
-/* ----------------------------------------- INDEX */
+/* ----------------------------------------- HOME/INDEX STYLING */
 
 .carousel-item {
   max-height: 55vh;
@@ -96,7 +91,7 @@ p {
 }
 
 
-/* ----------------------------------------- RECIPES PAGE */
+/* ----------------------------------------- RECIPE PAGES STYLING */
 
 .recipe-container {
     padding-top: 4vh;
@@ -104,6 +99,10 @@ p {
 
 .recipe-container img{
     max-height: 50vh;
+}
+
+.card-title {
+    font-family: "Sriracha", sans-serif;
 }
 
 .recipe-title {
@@ -132,7 +131,7 @@ p {
 }
 
 
-/* ----------------------------------------- FORMS */
+/* ----------------------------------------- FORMS STYLING */
 
 i {
     font-size: 1.3em;
@@ -148,32 +147,15 @@ i {
     padding: 1vh 0;
 }
 
-
-/* ----------------------------------------- THANK YOU PAGE*/
-
-.thank-you-container {
-    padding: 4vh 0;
+.category-formfield {
+    text-transform: capitalize;
 }
 
-.thank-you-container img {
-    max-height: 60vh;
-    padding: 2vh 0;
-    width: 100%;
-    border-radius: 30%;
-}
 
-.thank-you-text {
-    padding: 2vh 0 3vh 0;
-    color: #28a745;
-}
-
-.thank-you-container i {
-    padding-left: 2vw;
-}
-
-/* ----------------------------------------- FOOTER */
+/* ----------------------------------------- FOOTER STYLING */
 
 footer {
+    background-color: #ee693f;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -181,8 +163,6 @@ footer {
     border-top: 5px solid #fff;
 }
 
-footer,
 footer p {
-    background-color: #ee693f;
     color: #fff;
 }
