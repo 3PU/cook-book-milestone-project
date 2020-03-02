@@ -14,6 +14,7 @@
 - Accessibility
 - Challenges
 - Features
+- Defensive Design
 - Testing
 - Version control
 - Deployment
@@ -46,12 +47,12 @@ A live demo of the website can be found [here](https://codei-cook-book.herokuapp
 
 <table>
    <tr>
-    <td>Index Page - Large Screen <img src="#" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
-    <td>Index Page - Small Screen <img src="#" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
-    <td>View Recipes Page - Large Screen <img src="#" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
-    <td>View Recipes Page - Small Screen <img src="#" alt="Wireframe Mockup View Recipes Page - Small Screen" style="width: 200px;"/></td>
-    <td>Edit/Add Recipe Page - Large Screen <img src="#" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
-    <td>Edit/Add Recipe Page - Small Screen <img src="#" alt="Wireframe Mockup Edit/Add Recipes Page - Small Screen" style="width: 200px;"/></td>
+    <td>Index Page - Large Screen <img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
+    <td>Index Page - Small Screen <img src="static/images/wireframes/wireframe_index_smallscreen.png" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
+    <td>View Recipes Page - Large Screen <img src="static/images/wireframes/wireframe_view_recipes_largescreen.png" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
+    <td>View Recipes Page - Small Screen <img src="static/images/wireframes/wireframe_view_recipes_smallscreen.png" alt="Wireframe Mockup View Recipes Page - Small Screen" style="width: 200px;"/></td>
+    <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
+    <td>Edit/Add Recipe Page - Small Screen <img src="static/images/wireframes/wireframe_add_recipe_smallscreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Small Screen" style="width: 200px;"/></td>
     </tr>
 </table>
 
@@ -117,7 +118,7 @@ As a user, I want to browse a large collection of vegetarian recipes. (Read)
 As a user, I want to be able to edit recipes. (Update)
 As a user, I want to be able to delete recipes. (Delete)
 
-To be added (TBA):
+Features to be added (TBA):
 
 As a user, I want to create my own profile/login where I can store my own recipe collection. (TBA)
 As a user, I want to be able to vote on recipes in the database. (TBA)
@@ -125,6 +126,28 @@ As a user, I want to be able to comment on recipes in the database. (TBA)
 As a user, I want to be able to quickly share recipes with my friends on social media. (TBA)
 As a returning user, I want to be able to edit and delete my own recipes in my personal recipe collection. (TBA)
 As a admin user I want to be able to edit and delete any recipe in the database. (TBA)
+
+<br/>
+
+## Database
+
+The database chosen for this is a non-relational database hosted on MongoDB.
+
+The application uses 2 database collections, 'categories' and 'recipes'.
+
+The basic information of each recipe (category, title, image-link, description) is stored as a key value whilst the content of the ingredients and instructions for each recipe are stored as an array.
+
+The idea behind the array is to be able to better structure the output of the ingredients and instructions data in the recipe view.
+
+This is achieved by the user segregating each ingredient/instruction in the add/edit recipe form using a line break (hit enter after each ingredient/instruction).
+
+The user is instructed to do this via the placeholder text in the applicable textarea on the edit/add recipe page.
+
+The textarea content is then split using "/n" and saved as an array in the database.
+
+The reverse is applied "/n.join" to pre-populate the textarea formfields when editing a recipe.
+
+The view recipe page applies a for each function to combine each array item into a collection of ingredienst/instructions to the user.
 
 <br/>
 
@@ -136,18 +159,97 @@ To increase accessibility of the website, ALT attributes have been added to caro
 
 ## Challenges
 
+My overall experience when creating this application was smooth and straight forward in terms of database, routing, layout, design and responsiveness.
 
+What I found challenging was to create and work with arrays instead of only key values in the database, how to split the user input
+and join it back together when pre-populating the edit recipe formfields.
 
 <br/>
 
 ## Features
 
-### Existing Features
+### Feature Overview
 
 - Users can add their favorite vegetarian recipes to the database. (Create)
 - Users can browse through all recipes contained in the database. (Read)
 - Users can edit  recipes in the database. (Update)
 - Users can delete recipes in the database. (Delete)
+
+### Feature 1 - Add Recipes (Create)
+
+**User story: "As a user, I want to be able to add my own recipes to the database."**
+
+Users can easily add new recipes to the database by navigating to the 'add recipe' page and completing the form.
+
+The **Select Category** field allows users to select a category for the recipe. This field contains pre-selections populated by the categories
+available in the database which restricts users from entering an incorrect category.
+
+The **Recipe Name** field allows the user to add a name/title of the recipe.
+This field has a restriction of maximum 100 characters so the user cannot upload an infinite amount of text.
+
+The **Recipe Image** field allows the user to add a image link to the recipe image.
+This field does only require strings containing a correct url address (front-end validation).
+
+The **Recipe Description** field allows the user to enter a recipe description.
+This field has a restriction of maximum 1000 characters so the user cannot upload an infinite amount of text.
+
+The **Ingredients** field allows the user to enter recipe ingredients.
+This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
+
+The **Instructions** field allows the user to enter recipe instructions.
+This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
+
+The form currently uses front-end validation to make sure the user completes all mandatory formfields and enters a valid image recipe link.
+
+### Feature 2 - Browse Recipes (Read)
+
+**User story: "As a user, I want to browse a large collection of vegetarian recipes."**
+
+Users can select to view a specific category of recipes by using the main navigation and dropdown menu (Breakfast, Main, Dessert).
+
+The recipe category page displays a brief overview of all recipes contained in the applicable category in the database (Title, Image, Description).
+
+From this page, the user can select a specific recipe by clicking on the 'view recipe' button and is then presented with a full-page view of the recipe and all its details.
+
+### Feature 3 - Update Recipes (Update)
+
+**User story: "As a user, I want to be able to edit recipes."**
+
+From the view_recipe page, the user can select to edit the applicable recipe by clicking on the 'edit recipe' button.
+
+This takes the user to a form that is pre-populated with the recipe information which the user then can use to update the recipe.
+
+The **Select Category** field allows users to select/change the category of the recipe. This field contains pre-selections populated by the categories
+available in the database which restricts users from entering an incorrect category.
+
+The **Recipe Name** field allows the user to change the name/title of the recipe.
+This field has a restriction of maximum 100 characters so the user cannot upload an infinite amount of text.
+
+The **Recipe Image** field allows the user to edit or change the image link to the recipe image.
+This field does only require strings containing a correct url address (front-end validation).
+
+The **Recipe Description** field allows the user to edit or update the recipe description.
+This field has a restriction of maximum 1000 characters so the user cannot upload an infinite amount of text.
+
+The **Ingredients** field allows the user to edit or update the recipe ingredients.
+This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
+
+The **Instructions** field allows the user to edit or update the recipe instructions.
+This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
+
+Once the user is done with editing the information, the user is left with 2 choices, to update the recipe by clicking the 'update recipe' button or canceling the update process by clicking 'cancel'.
+
+The user choice is confirmed via an on-screen alert.
+
+## Feature 4 - Delete Recipes (Delete)
+
+**User story: "As a user, I want to be able to delete recipes. (Delete)"**
+
+From the view_recipe page, the user can select to delete the applicable recipe by clicking on 'delete recipe'.
+
+Clicking on the 'delete recipe' button brings up an on-screen alert requiring the user to confirm their choice.
+
+Clicking on 'OK' deletes the recipe and confirms this via a new on-screen alert. Clicking on 'cancel' does not delete the recipe which also is confirmed via a new on-screen alert.
 
 ### Features Left To Implement
 
@@ -155,14 +257,76 @@ Going forward I would like to implement the following features:
 
 - Storing user data: Storing user data for each recipe, connecting the recipe to the user that created it.
 - Login feature: Only enabling logged in admins or logged in users owning a recipe to edit/delete them.
+- Search feature: Allowing users to search for specific categories or recipes in the database.
 - Sharing feature: Create social share buttons for users to share a recipe on social media.
 - Rating feature: Enabling users to vote on recipes.
 - Comment section: Enabling users to comment on shared recipes.
-- Validation: Add further backend validation to further add to defensive design.
+- Backend Validation: Add further backend validation to further add to defensive design.
+- Image upload feature allowing users to upload images instead of just adding image links.
+- Admin approval of new content, meaning a admin level user has to approve new recipes added before they become publicly available.
+
+<br/>
+
+## Defensive Design
+
+The main concern when building this application from a defensive design standpoint was to limit the user from being able to spam the database.
+
+For this project, to display my understanding and skill of the CRUD functionality I've allowed any user to add/edit/delete recipes.
+
+A future feature I'm looking to add is to restrict regular users from editing/deleting a recipe by connecting each recipe to a user, meaning
+only the creator/owner of a recipe can edit or delete it, alternatively a admin type user can edit/delete any recipe.
+
+For now, this application only uses front-end data validation via the formfield attributes (max # of characters, valid url, etc.).
+
+This ensures the amount of data for each recipe is limited/controlled, but the content of the data is not.
+
+A user could upload any text (for example offensive text) into the database at this point.
+
+This is why I'm looking to add back-end data validation in the future along with a manual approval from a admin user before the uploaded recipe/information is made publicly available.
+
+*For details on defensive design testing, please see testing section.
 
 <br/>
 
 ## Testing
+
+### Manual Testing
+
+**Test:** Clicking on the navbar logo and 'home' navigation link in the navbar should navigate to the home page.
+
+** Result:** Tested on all pages. No errrors. Works as intended.
+
+**Test:** Clicking on the different recipe category links in the navigation bar should navigate to the view_recipe_category page and display the correct category.
+
+**Result:** Tested on all pages. No errrors. Works as intended.
+
+**Test:** Clicking on the 'Add Your Own Recipe* link in the navbar should navigate to the add_recipe page.
+
+**Result:** Tested on all pages. No errors. Works as intended.
+
+**Test:** Clicking on the 'view recipe' button on the view_recipe_category page should navigate to the view_recipe page and display all database information for the chosen recipe.
+
+**Result:** No errors. Works as intended.
+
+**Test:** Clicking on 'edit recipe' on the view_recipe page should navigate to the edit_recipe page and pre-populate all formfields with the recipes database information.
+
+**Result:** No errors. Works as intended.
+
+**Test:** Changing any of the recipe information on the edit_recipe page and clicking on the 'update recipe' button should bring up an alert, save the updated information to the database and navigate back to the view_recipe page.
+
+**Result:** No errors. Works as intended.
+
+**Test:** Clicking on the 'cancel' button on the edit_recipe page should bring up an alert and not update any information in the database and navigate back to the view_recipe page..
+
+**Result:** No errors. Works as intended.
+
+**Test:** Clicking on the 'delete recipe' button on the view_recipe page should bring up an alert asking the user for confirmation to delete the recipe.
+
+**Result:** No errors. Works as intended.
+
+**Test:** Confirming to delete the recipe should bring up an alert confirming that the recipe has been deleted and navigate back to the homepage.
+
+**Result:** No errors. Works as intended.
 
 ### Code Validation
 
@@ -185,21 +349,36 @@ The application was also tested by friends and family accross multiple devices a
 
 For final testing [Responsinator](https://www.responsinator.com/) was used to test the application accross multiple devices.
 
-### Screen Size & Browser Compability
+On the view recipe page, each recipe is presented on a row split into two divs, with the image taking up <20% of the row.
+
+This means recipe images ideally should be vertically represented, meaning a greater height than width.
+
+Since users can upload any type of image via the add/edit recipe pages, I applied a fixed width to the images using css to ensure wide images do not impact the overall design of the page.
+
+### Screen Size & Browser Testing & Compability
 
 Screen Size         | Size              | Comments
 --------------------|----------------------------
-X-Small             | <768px            | Pass
-Small               | >=768px           | Pass
-Medium              | >=992px           | Pass
-Large               | >=1200px          | Pass
+X-Small             | <768px            | No space between card-title and image. Padding added to rectify this on small screens.
+Small               | >=768px           | No space between card-title and image. Padding added to rectify this on small screens.
+Medium              | >=992px           | Passed, no changes needed.
+Large               | >=1200px          | Passed, no changes needed.
 
 
 Browser             | Version           | Comments
-
+--------------------|-------------------|---------
+Firefox             | 72.0.2 (64-bit)   | No errors observed
+Edge                | 44.18362.449.0    | No errors observed
+Chrome              | 80.0.3987.122     | No errors observed
+Opera               | 67.0.3575.31      | No errors observed
 
 ### Navigation
 
+Navigation was kept simple with a fixed navbar at the page top in order to give the body as much real estate as possible.
+
+On screens bewow 768px the navigation links are replaced by a nav-toggler to adjust for the lesser screen space available.
+
+The navbar brand logo is located in a classic top left corner location. When clicked the user will be returned to the homepage.
 
 ### Testing Tools
 
@@ -262,7 +441,7 @@ The recipes in the database are borrowed from one of my favorite vegetarian reci
 
 ### Acknowledgements
 
-Massive thanks to my Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project.
+A very big thank you goes to my Code Institute Mentor Brian M. for his invaluable support and guidance throughout this project.
 
 ### Disclaimer
 
