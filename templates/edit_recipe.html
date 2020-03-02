@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-pencil-alt"></i><label class="form-field-description">Recipe Name</label>
-                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" required data-validation-required-message="Please enter a recipe name." value="{{recipe.recipe_name}}">
+                    <input type="text" class="form-control" id="recipe_name" name="recipe_name" required data-validation-required-message="Please enter a recipe name." value="{{recipe.recipe_name}}" maxlength="100">
                     </div>
                 </div>            
                 <div class="form-group">
@@ -37,19 +37,19 @@
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-info"></i><label class="form-field-description">Recipe Description</label>
-                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description.">{{recipe.description}}</textarea>
+                    <textarea class="form-control" id="description" name="description" required data-validation-required-message="Please enter a short recipe description." maxlength="1000">{{recipe.description}}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-list-ul"></i><label class="form-field-description">Ingredients</label>
-                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe.">{{ingredients}}</textarea>
+                    <textarea class="form-control" id="ingredients" name="ingredients" rows="5" required data-validation-required-message="Please enter ingredients for the recipe." maxlength="3000">{{ingredients}}</textarea>
                     </div>
                 </div>            
                 <div class="form-group">
                     <div class="controls">
                     <i class="fas fa-clipboard-list"></i><label class="form-field-description">Instructions</label>
-                    <textarea class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe.">{{instructions}}</textarea>
+                    <textarea class="form-control" id="instructions" name="instructions" rows="5" required data-validation-required-message="Please enter instructions for the recipe." maxlength="3000">{{instructions}}</textarea>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success" onclick="alert_edit()" id="sendMessageButton">Update Recipe</button>
