@@ -46,13 +46,15 @@ A live demo of the website can be found [here](https://codei-cook-book.herokuapp
 ## Wireframe Mockups
 
 <table>
-   <tr>
-    <td>Index Page - Large Screen <img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
-    <td>Index Page - Small Screen <img src="static/images/wireframes/wireframe_index_smallscreen.png" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
-    <td>View Recipes Page - Large Screen <img src="static/images/wireframes/wireframe_view_recipes_largescreen.png" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
-    <td>View Recipes Page - Small Screen <img src="static/images/wireframes/wireframe_view_recipes_smallscreen.png" alt="Wireframe Mockup View Recipes Page - Small Screen" style="width: 200px;"/></td>
-    <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
-    <td>Edit/Add Recipe Page - Small Screen <img src="static/images/wireframes/wireframe_add_recipe_smallscreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Small Screen" style="width: 200px;"/></td>
+    <tr>
+        <td>Index Page - Large Screen <img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
+        <td>Index Page - Small Screen <img src="static/images/wireframes/wireframe_index_smallscreen.png" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
+        <td>View Recipes Page - Large Screen <img src="static/images/wireframes/wireframe_view_recipes_largescreen.png" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
+    </tr>
+    <tr>
+        <td>View Recipes Page - Small Screen <img src="static/images/wireframes/wireframe_view_recipes_smallscreen.png" alt="Wireframe Mockup View Recipes Page - Small Screen" style="width: 200px;"/></td>
+        <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
+        <td>Edit/Add Recipe Page - Small Screen <img src="static/images/wireframes/wireframe_add_recipe_smallscreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Small Screen" style="width: 200px;"/></td>
     </tr>
 </table>
 
@@ -294,13 +296,13 @@ This is why I'm looking to add back-end data validation in the future along with
 
 **Test:** Clicking on the navbar logo and 'home' navigation link in the navbar should navigate to the home page.
 
-** Result:** Tested on all pages. No errrors. Works as intended.
+**Result:** Tested on all pages. No errrors. Works as intended.
 
 **Test:** Clicking on the different recipe category links in the navigation bar should navigate to the view_recipe_category page and display the correct category.
 
 **Result:** Tested on all pages. No errrors. Works as intended.
 
-**Test:** Clicking on the 'Add Your Own Recipe* link in the navbar should navigate to the add_recipe page.
+**Test:** Clicking on the 'Add Your Own Recipe' link in the navbar should navigate to the add_recipe page.
 
 **Result:** Tested on all pages. No errors. Works as intended.
 
@@ -327,6 +329,34 @@ This is why I'm looking to add back-end data validation in the future along with
 **Test:** Confirming to delete the recipe should bring up an alert confirming that the recipe has been deleted and navigate back to the homepage.
 
 **Result:** No errors. Works as intended.
+
+**Test:** Pressing 'cancel' on the confirm delete alert should not delete the recipe and bring up another alert stating that the recipe has not been deleted.
+
+**Result:** No errors. Works as intended.
+
+**Test:** On the add_recipe and edit_recipe pages, adding a invalid url into the image link field should result in an error, stating that the string is not a valid url.
+
+**Result:** Error displays correctly.
+
+**Test:** Textfields and textareas on the add_recipe and edit_recipe pages should only allow for maximum number of characters to be added (100, 1000 & 3000).
+
+**Result:** Character limit works as intended.
+
+**Test:** Leaving the mandatory formfields empty on the add_recipe and edit_recipe pages should result in an error, stating that the user has to enter some information.
+
+**Result:** Error displays correctly.
+
+**Test:** Clicking on the 'Submit Recipe' button on the add_recipe page should update the database accordingly and navigate to the added recipe page (view_recipe).
+
+**Result:** No errors. Works as intended.
+
+**Test:** Clicking on the 'Cancel' button on the add_recipe page should navigate back to the homepage.
+
+**Result:** No errors. Works as intended.
+
+**Test:** Using the browsers 'back' button does not break any of the application functions.
+
+**Result:** No errors observed.
 
 ### Code Validation
 
@@ -424,6 +454,15 @@ How to deploy to Heroku using GitPod:
 7. Connect GitHub to Heroku via the console using 'heroku git:remote a codei-cook-book'
 8. Commit all files in your project via the console using 'git add .' and 'git commit -m "Message"'.
 9. Deploy your project to Heroku via the consol using 'git push heroku master'.
+
+Running the application locally using Gitpod:
+
+1. Clone the repository as outlined above and upload it to GitPod.
+2. Install the necessary libraries specified in the requirements.txt.
+3. Set your environment variables by creating and adding them into a env.py file.
+4. Create a .gitignore file in the root directory and add the env.py file to avoid it being pushed to GitHub.
+5. Import the env.py file into the app.py file.
+6. Run the application.
 
 <br/>
 
