@@ -11,7 +11,7 @@
             <form action="{{url_for('update_recipe', recipe_id=recipe._id)}}" method="POST" name="updateRecipe" id="updateRecipe">
                 <div class="form-group">
                     <i class="fas fa-align-center"></i><label class="form-field-description">Select Category</label>
-                        <select class="form-control" id="category_name" name="category_name">
+                        <select class="form-control category-formfield" id="category_name" name="category_name">
                             <!-- Populate categories from database categories -->
                             {% for category in categories %}
                                 {% if category.category_name == recipe.category_name %}
