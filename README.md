@@ -16,7 +16,6 @@
 - Features
 - Defensive Design
 - Testing
-- Version control
 - Deployment
 - Credits
 
@@ -43,17 +42,19 @@ This is where a website like VeggiePedia can make a differency by building one o
 
 A live demo of the website can be found [here](https://codei-cook-book.herokuapp.com/).
 
+<br/>
+
 ## Wireframe Mockups
 
 <table>
     <tr>
         <td>Index Page - Large Screen <img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
-        <td>Index Page - Small Screen <img src="static/images/wireframes/wireframe_index_smallscreen.png" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
         <td>View Recipes Page - Large Screen <img src="static/images/wireframes/wireframe_view_recipes_largescreen.png" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
+        <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
     </tr>
     <tr>
+        <td>Index Page - Small Screen <img src="static/images/wireframes/wireframe_index_smallscreen.png" alt="Wireframe Mockup Index Page - Small Screen" style="width: 200px;"/></td>
         <td>View Recipes Page - Small Screen <img src="static/images/wireframes/wireframe_view_recipes_smallscreen.png" alt="Wireframe Mockup View Recipes Page - Small Screen" style="width: 200px;"/></td>
-        <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
         <td>Edit/Add Recipe Page - Small Screen <img src="static/images/wireframes/wireframe_add_recipe_smallscreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Small Screen" style="width: 200px;"/></td>
     </tr>
 </table>
@@ -385,15 +386,16 @@ This means recipe images ideally should be vertically represented, meaning a gre
 
 Since users can upload any type of image via the add/edit recipe pages, I applied a fixed width to the images using css to ensure wide images do not impact the overall design of the page.
 
-### Screen Size & Browser Testing & Compability
+### Screen Size Testing/Compability
 
 Screen Size         | Size              | Comments
---------------------|----------------------------
+--------------------|-----------------------------
 X-Small             | <768px            | No space between card-title and image. Padding added to rectify this on small screens.
 Small               | >=768px           | No space between card-title and image. Padding added to rectify this on small screens.
 Medium              | >=992px           | Passed, no changes needed.
 Large               | >=1200px          | Passed, no changes needed.
 
+### Browser Compability
 
 Browser             | Version           | Comments
 --------------------|-------------------|---------
@@ -425,7 +427,7 @@ The responsivness and all code has been checked for errors using a HTML, CSS, Ja
 
 The project is stored in a GitHub  [repository](https://github.com/3PU/cook-book-milestone-project) and hosted on [Heroku](https://codei-cook-book.herokuapp.com/).
 
-How to deploy to Github:
+**How to deploy to Github:**
 
 1. When logged into GitHub, navigate to the repository you want to host/publish. For this project, click [here](https://github.com/3PU/cook-book-milestone-project).
 2. Click on 'Settings' to the far right in navigation menu below your repository name.
@@ -433,7 +435,7 @@ How to deploy to Github:
 4. Click **save**.
 5. The link to the site hosted on GitHub Pages should appear at the top of the section.
 
-How to clone this repository in order to run the code locally on your machine:
+**How to clone this repository in order to run the code locally on your machine:**
 
 1. When logged into GitHub, navigate to the repository you want to clone. For this project, click [here](https://github.com/3PU/cook-book-milestone-project).
 2. Click on the **'Clone or download'** button which should be displayed above and to the right of the repository files.
@@ -443,7 +445,7 @@ How to clone this repository in order to run the code locally on your machine:
 6. Type **'git clone'** and then paste the URL you copied.
 7. Press **Enter** and your local clone will be created.
 
-How to deploy to Heroku using GitPod:
+**How to deploy to Heroku using GitPod:**
 
 1. Created a new application using the Heroku dashboard.
 2. Go to settings tab, click on 'reveal config vars' and add config vars such as IP (0.0.0.0), PORT (5000), MongoDB Name, MongoDB URI (URL with DB name and password).
@@ -455,7 +457,7 @@ How to deploy to Heroku using GitPod:
 8. Commit all files in your project via the console using 'git add .' and 'git commit -m "Message"'.
 9. Deploy your project to Heroku via the consol using 'git push heroku master'.
 
-Running the application locally using Gitpod:
+**Running the application locally using Gitpod:**
 
 1. Clone the repository as outlined above and upload it to GitPod.
 2. Install the necessary libraries specified in the requirements.txt.
