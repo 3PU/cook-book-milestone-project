@@ -27,14 +27,14 @@
 
 This is my third milestone project for my Coding Bootcamp at Code Institute.
 
-The idea behind VeggiPedia is to create a huge database of vegeterian recipes with the help of its users similar to wikipedia,
-but for vegetarian recipes instead.
+The idea behind VeggiPedia is to create a huge database of vegeterian recipes with the help of its users, similar to wikipedia,
+but for vegetarian recipes.
 
-Switching to a vegetarian diet can be a challenge for many as most recipes for a long time across the world have included meat.
+Switching to a vegetarian diet can be a challenge for many as most recipes over the recent decades have been meat based.
 
 Thus, finding a large collection/resource of different vegetarian recipes can be a tricky endeavour.
 
-This is where a website like VeggiePedia can make a differency by building one of the largest collections of recipes available with the help of its users.
+This is where a website like VeggiePedia can make a differenc by building one of the largest collections of recipes available with the help of its users.
 
 <br/>
 
@@ -48,7 +48,7 @@ A live demo of the website can be found [here](https://codei-cook-book.herokuapp
 
 <table>
     <tr>
-        <td>Index Page - Large Screen <img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
+        <td>Index Page - Large Screen<img src="static/images/wireframes/wireframe_index_largescreen.png" alt="Wireframe Mockup Index Page - Large Screen" style="width: 200px;"/></td>
         <td>View Recipes Page - Large Screen <img src="static/images/wireframes/wireframe_view_recipes_largescreen.png" alt="Wireframe Mockup View Recipes Page - Large Screen" style="width: 200px;"/></td>
         <td>Edit/Add Recipe Page - Large Screen <img src="static/images/wireframes/wireframe_add_recipe_largescreen.png" alt="Wireframe Mockup Edit/Add Recipes Page - Large Screen" style="width: 200px;"/></td>
     </tr>
@@ -96,7 +96,7 @@ A live demo of the website can be found [here](https://codei-cook-book.herokuapp
 
 ### Colors, Fonts & Layout
 
-The overall layout of the page is very minimalistic to give the recipes and forms as much attention and real estate as possible.
+The overall layout of the page is aimed to be minimalistic in order to give the recipes and forms as much attention and real estate as possible.
 
 The goal of the color combination used was to mimic the colors found in many vegetarian dishes in combination with a font that reminds of a
 hand written recipe notebook.
@@ -111,24 +111,31 @@ This is primarily achieved by using bootstrap and custom-written css (for more d
 
 ## UX
 
-The overall goal of the website is to provide the visitors with a large database of vegetarian recipes created by users for users,
-enabling visitors to upload their own recipes to the database and browse through recipes added by other users.
+The overall goal of the website is to provide visitors looking for vegetarian recipes with a intuitive and simple site and a large database of recipes.
+
+The websites focuses on 3 main categories of recipes: Breakfast, Main Dishes & Desserts. Users are allowed to both edit/update recipes based on their experience
+when preparing the meal but also delete unwanted recipes. For the delete button a strong red color was used as a warning color along with a pop up alert asking
+the user for a second confirmation since deleted recipes cannot be recovered.
+
+The add recipe form displays placeholder text in all formfields to give the user instructions for easier input.
+
+The edit recipe form is pre-populated with the recipe information that is pulled from the database.
 
 ### User Stories
 
-As a user, I want to be able to add my own recipes to the database. (Create)
-As a user, I want to browse a large collection of vegetarian recipes. (Read)
-As a user, I want to be able to edit recipes. (Update)
-As a user, I want to be able to delete recipes. (Delete)
+- As a user, I want to be able to add my own recipes to the database. (Create)
+- As a user, I want to browse a large collection of vegetarian recipes. (Read)
+- As a user, I want to be able to edit recipes. (Update)
+- As a user, I want to be able to delete recipes. (Delete)
 
-Features to be added (TBA):
+Future user stories/functions (TBA):
 
-As a user, I want to create my own profile/login where I can store my own recipe collection. (TBA)
-As a user, I want to be able to vote on recipes in the database. (TBA)
-As a user, I want to be able to comment on recipes in the database. (TBA)
-As a user, I want to be able to quickly share recipes with my friends on social media. (TBA)
-As a returning user, I want to be able to edit and delete my own recipes in my personal recipe collection. (TBA)
-As a admin user I want to be able to edit and delete any recipe in the database. (TBA)
+- As a user, I want to create my own profile/login where I can store my own recipe collection. (TBA)
+- As a user, I want to be able to vote on recipes in the database. (TBA)
+- As a user, I want to be able to comment on recipes in the database. (TBA)
+- As a user, I want to be able to quickly share recipes with my friends on social media. (TBA)
+- As a returning user, I want to be able to edit and delete my own recipes in my personal recipe collection. (TBA)
+- As a admin user I want to be able to edit and delete any recipe in the database. (TBA)
 
 <br/>
 
@@ -164,8 +171,10 @@ To increase accessibility of the website, ALT attributes have been added to caro
 
 My overall experience when creating this application was smooth and straight forward in terms of database, routing, layout, design and responsiveness.
 
-What I found challenging was to create and work with arrays instead of only key values in the database, how to split the user input
+The biggest challenge for me was to create and work with arrays instead of only key values in the database, how to split the user input
 and join it back together when pre-populating the edit recipe formfields.
+
+With the help of my Code Institute mentor I was able to work this out.
 
 <br/>
 
@@ -191,7 +200,7 @@ The **Recipe Name** field allows the user to add a name/title of the recipe.
 This field has a restriction of maximum 100 characters so the user cannot upload an infinite amount of text.
 
 The **Recipe Image** field allows the user to add a image link to the recipe image.
-This field does only require strings containing a correct url address (front-end validation).
+This field does only accept strings containing a correct url address (front-end validation).
 
 The **Recipe Description** field allows the user to enter a recipe description.
 This field has a restriction of maximum 1000 characters so the user cannot upload an infinite amount of text.
@@ -202,7 +211,8 @@ This field has a restriction of maximum 3000 characters so the user cannot uploa
 The **Instructions** field allows the user to enter recipe instructions.
 This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
 
-The form currently uses front-end validation to make sure the user completes all mandatory formfields and enters a valid image recipe link.
+The add recipes form currently uses front-end validation to make sure the user completes all mandatory formfields, does not upload
+an infinite amount of text and enters a valid image recipe link.
 
 ### Feature 2 - Browse Recipes (Read)
 
@@ -210,11 +220,11 @@ The form currently uses front-end validation to make sure the user completes all
 
 Users can select to view a specific category of recipes by using the main navigation and dropdown menu (Breakfast, Main, Dessert).
 
-The recipe category page displays a brief overview of all recipes contained in the applicable category in the database (Title, Image, Description).
+The recipe category page displays a minimized view of all recipes (recipe cards) contained in the applicable category in the database (Title, Image, Description).
 
 From this page, the user can select a specific recipe by clicking on the 'view recipe' button and is then presented with a full-page view of the recipe and all its details.
 
-### Feature 3 - Update Recipes (Update)
+### Feature 3 - Edit Recipes (Update)
 
 **User story: "As a user, I want to be able to edit recipes."**
 
@@ -229,7 +239,7 @@ The **Recipe Name** field allows the user to change the name/title of the recipe
 This field has a restriction of maximum 100 characters so the user cannot upload an infinite amount of text.
 
 The **Recipe Image** field allows the user to edit or change the image link to the recipe image.
-This field does only require strings containing a correct url address (front-end validation).
+This field does only accept strings containing a correct url address (front-end validation).
 
 The **Recipe Description** field allows the user to edit or update the recipe description.
 This field has a restriction of maximum 1000 characters so the user cannot upload an infinite amount of text.
@@ -240,9 +250,13 @@ This field has a restriction of maximum 3000 characters so the user cannot uploa
 The **Instructions** field allows the user to edit or update the recipe instructions.
 This field has a restriction of maximum 3000 characters so the user cannot upload an infinite amount of text.
 
-Once the user is done with editing the information, the user is left with 2 choices, to update the recipe by clicking the 'update recipe' button or canceling the update process by clicking 'cancel'.
+Once the user is done with editing the information, the user is left with 2 choices, to update the recipe by clicking the 
+'update recipe' button or canceling the update process by clicking 'cancel'. Clicking on 'update recipe' confirms the user
+selection via an on-screen alert. Clicking on 'cancel' also confirms the user selection via a different on-screen alert
+and takes the user back to the recipe page.
 
-The user choice is confirmed via an on-screen alert.
+The edit recipes form currently uses front-end validation to make sure the user completes all mandatory formfields, does not upload
+an infinite amount of text and enters a valid image recipe link.
 
 ## Feature 4 - Delete Recipes (Delete)
 
@@ -258,8 +272,9 @@ Clicking on 'OK' deletes the recipe and confirms this via a new on-screen alert.
 
 Going forward I would like to implement the following features:
 
-- Storing user data: Storing user data for each recipe, connecting the recipe to the user that created it.
-- Login feature: Only enabling logged in admins or logged in users owning a recipe to edit/delete them.
+- Storing user data: Storing user data (username) for each recipe, connecting the recipe to the user that created it.
+- Login feature: Enabling users to create an account and log in using their chosen credentials.
+- Restrict edit/delete: Only enabling logged in admins or logged in users owning a recipe to edit/delete them.
 - Search feature: Allowing users to search for specific categories or recipes in the database.
 - Sharing feature: Create social share buttons for users to share a recipe on social media.
 - Rating feature: Enabling users to vote on recipes.
@@ -279,7 +294,7 @@ For this project, to display my understanding and skill of the CRUD functionalit
 A future feature I'm looking to add is to restrict regular users from editing/deleting a recipe by connecting each recipe to a user, meaning
 only the creator/owner of a recipe can edit or delete it, alternatively a admin type user can edit/delete any recipe.
 
-For now, this application only uses front-end data validation via the formfield attributes (max # of characters, valid url, etc.).
+For now, this application only uses front-end data validation via the formfield attributes (max # of characters, only accepting valid url, etc.).
 
 This ensures the amount of data for each recipe is limited/controlled, but the content of the data is not.
 
@@ -412,15 +427,6 @@ On screens bewow 768px the navigation links are replaced by a nav-toggler to adj
 
 The navbar brand logo is located in a classic top left corner location. When clicked the user will be returned to the homepage.
 
-### Testing Tools
-
-The responsivness and all code has been checked for errors using a HTML, CSS, JavaScript validation tool and a responsiveness tester:
-
-- [W3C, HTML Validation](https://validator.w3.org/)
-- [W3C, CSS Validation](https://jigsaw.w3.org/css-validator/)
-- [Responsinator](https://www.responsinator.com/)
-- [PEP8 Online](http://pep8online.com/)
-
 <br/>
 
 ## Deployment
@@ -476,9 +482,10 @@ All of the text content on the website was written by me.
 
 ### Media
 
-The images used accross the page were obtained from [Pexels](https://www.pexels.com/) and [Google Images](https://images.google.com/).
+The static images used accross the page were obtained from [Pexels](https://www.pexels.com/) and [Google Images](https://images.google.com/).
 
-The recipes in the database are borrowed from one of my favorite vegetarian recipes website [Cookie & Kate](https://cookieandkate.com/) 
+The recipes that I've added to the database in order to display the functionality of the application are borrowed from one of my favorite
+vegetarian recipes website [Cookie & Kate](https://cookieandkate.com/) 
 
 ### Acknowledgements
 
