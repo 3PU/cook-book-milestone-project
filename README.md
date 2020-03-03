@@ -404,7 +404,7 @@ Since users can upload any type of image via the add/edit recipe pages, I applie
 ### Screen Size Testing/Compability
 
 Screen Size         | Size              | Comments
---------------------|-----------------------------
+--------------------|-------------------|---------
 X-Small             | <768px            | No space between card-title and image. Padding added to rectify this on small screens.
 Small               | >=768px           | No space between card-title and image. Padding added to rectify this on small screens.
 Medium              | >=992px           | Passed, no changes needed.
